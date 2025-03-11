@@ -1,11 +1,37 @@
 import { useState, useEffect } from 'react';
 import { Users2, Eye, BarChart3, Settings2, DollarSign, Search, Link2, TrendingUp, GraduationCap, Monitor } from 'lucide-react';
 
+// Geänderte Reihenfolge der Items
 const valueItems = [
+  {
+    icon: TrendingUp,
+    title: 'Personal Perspektive',
+    description: 'Individuelle Fördermöglichkeiten in einem großen Ökosystem, mit agilen Entscheidungswegen.'
+  },
+  {
+    icon: DollarSign,
+    title: 'Finanzielle Hebel',
+    description: 'Finanzielle Stärken bündeln und zum Wohle der Gesamtlösung einsetzen.'
+  },
+  {
+    icon: Settings2,
+    title: 'Operative Hebel',
+    description: 'Gemeinsame Stärken nutzen und durchgängige Experten-Lösungen schaffen.'
+  },
   {
     icon: Users2,
     title: 'Management Team',
     description: 'Ein erfahrenes, kompetentes Managementteam sorgt für strategische Unterstützung.'
+  },
+  {
+    icon: Search,
+    title: 'Recruiting',
+    description: 'Unterstützung durch Personal-Experten'
+  },
+  {
+    icon: GraduationCap,
+    title: 'Ausbildung',
+    description: 'Kontinuierliche Schulung und Weiterentwicklung der Mitarbeiterkompetenzen.'
   },
   {
     icon: Eye,
@@ -18,34 +44,9 @@ const valueItems = [
     description: 'Ein effektives Berichtssystem ermöglicht es sich auf seine Aufgaben zu konzentrieren und agil zu reagieren.'
   },
   {
-    icon: Settings2,
-    title: 'Operative Hebel',
-    description: 'Gemeinsame Stärken nutzen und durchgängige Experten-Lösungen schaffen.'
-  },
-  {
-    icon: DollarSign,
-    title: 'Finanzielle Hebel',
-    description: 'Finanzielle Stärken bündeln und zum Wohle der Gesamtlösung einsetzen.'
-  },
-  {
-    icon: Search,
-    title: 'Recruiting',
-    description: 'Unterstützung durch Personal-Experten'
-  },
-  {
     icon: Link2,
     title: 'Gruppenzugehörigkeit',
     description: 'Mehr aus den einzelnen Möglichkeiten rausholen und gemeinsam bessere Lösungen und Entwicklungen schaffen.'
-  },
-  {
-    icon: TrendingUp,
-    title: 'Personal Perspektive',
-    description: 'Individuelle Fördermöglichkeiten in einem großen Ökosystem, mit agilen Entscheidungswegen.'
-  },
-  {
-    icon: GraduationCap,
-    title: 'Ausbildung',
-    description: 'Kontinuierliche Schulung und Weiterentwicklung der Mitarbeiterkompetenzen.'
   },
   {
     icon: Monitor,
@@ -82,14 +83,14 @@ export default function GroupValue() {
   return (
       <section id="group-value" className="bg-[#C25B3F] py-12 sm:py-16 lg:py-24 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`mb-8 sm:mb-12 lg:mb-16 max-w-3xl mx-auto text-center 
+          <div className={`mb-8 sm:mb-12 lg:mb-16 mx-auto text-center 
                       ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
             <h2 className="font-outfit text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-8
                        section-enter section-enter-active">
               Unser Gruppenmehrwert
             </h2>
             <p className="font-outfit text-base sm:text-lg text-white/90 leading-relaxed
-                     section-enter section-enter-active delay-100">
+                     section-enter section-enter-active delay-100 max-w-full">
               IT-/Technologieunternehmen zeichnen sich durch ihre Kompetenz und die exzellente Umsetzung von
               Kundenanforderungen aus. Unser Ziel ist es, diese Qualitäten zu erhalten, die Unternehmenskultur
               zu wahren und Raum für weiteres Wachstum und Entwicklung zu schaffen.

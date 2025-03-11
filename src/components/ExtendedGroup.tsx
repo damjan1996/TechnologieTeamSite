@@ -38,7 +38,7 @@ export default function ExtendedGroup() {
           <div className={`transition-all duration-700 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            <h2 className="font-outfit text-3xl sm:text-4xl lg:text-5xl font-bold text-[#C25B3F]
+            <h2 className="font-outfit text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900
                        mb-4 sm:mb-6 section-enter section-enter-active">
               Die erweiterte Unternehmensgruppe
             </h2>
@@ -94,6 +94,13 @@ export default function ExtendedGroup() {
                   Zentrale: Oberhausen
                 </p>
               </div>
+
+              {/* Link for more information */}
+              <a href="#" className="absolute bottom-4 right-4 bg-[#C25B3F] hover:bg-[#A34832] text-white
+                          px-4 py-2 rounded-full shadow-lg transform transition-all duration-300
+                          group-hover:scale-105 font-medium">
+                Mehr Informationen zur Unternehmensgruppe
+              </a>
             </div>
           </div>
         </div>

@@ -59,9 +59,9 @@ export default function Mission() {
 
             {/* Mission Text Content */}
             <div className="lg:col-span-8">
-              <h2 className="font-outfit text-3xl sm:text-4xl lg:text-5xl font-bold text-[#C25B3F]
+              <h2 className="font-outfit text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900
                           mb-8 sm:mb-12 section-enter section-enter-active">
-                Unser Leitbild
+                Unser Leitbild - Expertise in der Nachfolge
               </h2>
 
               <div className="space-y-6 sm:space-y-8">

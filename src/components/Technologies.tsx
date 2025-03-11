@@ -70,7 +70,7 @@ export default function Technologies() {
           {/* Header */}
           <div className="flex items-center justify-between mb-6">
             <h2 className="font-outfit text-2xl sm:text-3xl font-bold text-[#C25B3F]">
-              Unterstützte Technologien
+              Unterstützte Technologien in der gesamten Prozesskette
             </h2>
             {!isMobile && (
                 <div className="flex gap-3">

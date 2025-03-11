@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 export default function Hero() {
@@ -38,14 +37,14 @@ export default function Hero() {
                                 UNTERNEHMENSGRUPPE
                             </span>
                         </h1>
-                        <p className="font-outfit text-lg xs:text-xl sm:text-2xl md:text-3xl text-gray-200
-                                    mb-6 sm:mb-8 md:mb-12 tracking-normal leading-relaxed
+                        <p className="font-outfit text-xl xs:text-2xl sm:text-3xl md:text-4xl text-gray-200
+                                    mb-6 sm:mb-8 md:mb-12 tracking-normal leading-relaxed font-bold
                                     section-enter section-enter-active delay-200">
                             Gemeinsam Stärker | Für Unsere Kunden | Durchgängig In Ihren Prozessen
                         </p>
-                        <div className="section-enter section-enter-active delay-300">
-                            <Link
-                                to="/mehr"
+                        <div className="section-enter section-enter-active delay-300 flex flex-col sm:flex-row sm:items-center gap-4">
+                            <a
+                                href="mailto:kontakt@technologie.team?subject=Gruppenbeitritt%20anfragen"
                                 className="group relative font-outfit inline-flex items-center justify-center
                                          overflow-hidden rounded bg-[#C25B3F] px-6 sm:px-8 py-3 sm:py-4
                                          text-base sm:text-lg md:text-xl font-medium uppercase tracking-wide
@@ -54,7 +53,7 @@ export default function Hero() {
                                          hover:bg-[#A34832]"
                             >
                                 <span className="flex items-center gap-2">
-                                    Mehr erfahren
+                                    Gruppenbeitritt anfragen
                                     <svg
                                         className="w-4 h-4"
                                         fill="none"
@@ -69,7 +68,14 @@ export default function Hero() {
                                         />
                                     </svg>
                                 </span>
-                            </Link>
+                            </a>
+                            <a
+                                href="mailto:kontakt@technologie.team"
+                                className="font-outfit text-white text-base sm:text-lg md:text-xl
+                                         hover:text-[#C25B3F] transition-colors duration-300"
+                            >
+                                kontakt@technologie.team
+                            </a>
                         </div>
                     </div>
                 </div>

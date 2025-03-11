@@ -4,37 +4,42 @@ const companies = [
   {
     name: 'b.o.c. IT-SECURITY',
     logo: '/images/bocitsec.png',
-    link: '#'
-  },
-  {
-    name: 'GIS',
-    logo: '/images/gis.png',
-    link: '#'
+    link: 'https://www.boc.de'
   },
   {
     name: 'RITTER TECHNOLOGIE',
     logo: '/images/rittec.png',
-    link: '#'
+    link: 'https://www.rittec.de'
   },
   {
-    name: 'NETRIX',
-    logo: '/images/netrix.png',
-    link: '#'
+    name: 'GIS',
+    logo: '/images/gis.png',
+    link: 'https://www.gis-net.de'
+  },
+  {
+    name: '2G-KONZEPT',
+    logo: '/images/2gdigital.png',
+    link: 'https://www.2g-konzept.de'
   },
   {
     name: 'RITTER digital',
     logo: '/images/ritterdigital.png',
-    link: '#'
+    link: 'https://www.ritterdigital.de'
   },
   {
     name: 'LINQ-IT',
     logo: '/images/linqit.png',
-    link: '#'
+    link: 'https://www.linq-it.de'
   },
   {
-    name: '2G.digital',
-    logo: '/images/2gdigital.png',
-    link: '#'
+    name: 'NETRIX IT',
+    logo: '/images/netrix.png',
+    link: 'https://www.netrix-it.de'
+  },
+  {
+    name: 'DEMOS COMPUTER',
+    logo: '/images/2gdigital.png', // Placeholder, should be replaced with the actual image
+    link: 'https://www.demoscomputer.de'
   }
 ];
 
@@ -67,7 +72,7 @@ export default function GroupCompanies() {
   return (
       <section id="companies" className="py-12 sm:py-16 lg:py-24 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className={`font-outfit text-3xl sm:text-4xl lg:text-5xl font-bold text-[#C25B3F] 
+          <h2 className={`font-outfit text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 
                      mb-8 sm:mb-12 lg:mb-16 transition-all duration-700
                      ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             Unsere IT-/Technologie Gruppenunternehmen
@@ -79,6 +84,8 @@ export default function GroupCompanies() {
                 <a
                     key={index}
                     href={company.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`
                 relative bg-white rounded-xl p-4 sm:p-6 lg:p-8
                 transition-all duration-500 ease-out
@@ -98,7 +105,7 @@ export default function GroupCompanies() {
                   <img
                       src={company.logo}
                       alt={company.name}
-                      className="w-full max-w-[85%] max-h-[65%] object-contain
+                      className="w-full max-w-[95%] max-h-[80%] object-contain
                          transition-transform duration-500
                          group-hover:scale-110 will-change-transform"
                       loading="lazy"
