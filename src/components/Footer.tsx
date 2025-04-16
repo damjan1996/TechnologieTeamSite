@@ -7,8 +7,8 @@ type FooterSection = {
 };
 
 const links = [
-    { href: '#technologies', text: 'Unterstützte Technologien' },
-    { href: '#group', text: 'Gruppenbeitritt' },
+    { href: '#technologien', text: 'Unterstützte Technologien' },
+    { href: '#gruppenmehrwert', text: 'Gruppenmehrwert' },
     { href: 'mailto:kontakt@technologie.team?subject=Gruppenbeitritt%20anfragen', text: 'Gruppenbeitritt anfragen' },
     { href: '#impressum', text: 'Impressum' },
 ];
@@ -39,27 +39,39 @@ export default function Footer() {
         };
     }, []);
 
+    // Funktion zum Öffnen von mailto Links
+    const handleMailtoClick = (e: React.MouseEvent<HTMLAnchorElement>, mailtoUrl: string) => {
+        e.preventDefault(); // Verhindert die Standard-Link-Aktion
+        window.location.href = mailtoUrl; // Öffnet den mailto-Link direkt
+    };
+
     const sections: FooterSection[] = [
         {
             title: 'Links',
             content: (
                 <div className="space-y-3">
-                    {links.map((link) => (
-                        <a
-                            key={link.href}
-                            href={link.href}
-                            className="block transform transition-all duration-300 hover:text-white
-                       hover:translate-x-1 focus:outline-none focus:text-white
-                       group relative"
-                            onMouseEnter={() => setHoveredLink(link.href)}
-                            onMouseLeave={() => setHoveredLink(null)}
-                        >
-                            <span className="relative z-10 inline-block">{link.text}</span>
-                            <span className={`absolute left-0 bottom-0 w-0 h-0.5 bg-[#C25B3F] 
-                            transition-all duration-300 group-hover:w-full
-                            ${hoveredLink === link.href ? 'w-full' : 'w-0'}`} />
-                        </a>
-                    ))}
+                    {links.map((link) => {
+                        // Prüfen, ob es ein mailto-Link ist
+                        const isMailto = link.href.startsWith('mailto:');
+
+                        return (
+                            <a
+                                key={link.href}
+                                href={link.href}
+                                className="block transform transition-all duration-300 hover:text-white
+                                   hover:translate-x-1 focus:outline-none focus:text-white
+                                   group relative"
+                                onMouseEnter={() => setHoveredLink(link.href)}
+                                onMouseLeave={() => setHoveredLink(null)}
+                                onClick={isMailto ? (e) => handleMailtoClick(e, link.href) : undefined}
+                            >
+                                <span className="relative z-10 inline-block">{link.text}</span>
+                                <span className={`absolute left-0 bottom-0 w-0 h-0.5 bg-[#C25B3F] 
+                                    transition-all duration-300 group-hover:w-full
+                                    ${hoveredLink === link.href ? 'w-full' : 'w-0'}`} />
+                            </a>
+                        );
+                    })}
                 </div>
             ),
         },
@@ -82,17 +94,18 @@ export default function Footer() {
                 <div>
                     <a href="mailto:kontakt@technologie.team"
                        className="block mb-4 transition-all duration-300 hover:text-white
-                      hover:translate-x-1 relative group">
+                          hover:translate-x-1 relative group"
+                       onClick={(e) => handleMailtoClick(e, "mailto:kontakt@technologie.team")}>
                         <span>kontakt@technologie.team</span>
                         <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-[#C25B3F]
-                         transition-all duration-300 group-hover:w-full" />
+                             transition-all duration-300 group-hover:w-full" />
                     </a>
                     <a
                         href="https://www.linkedin.com/company/technologie-team"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block transform transition-all duration-300
-                     hover:scale-110 focus:outline-none focus:scale-110"
+                         hover:scale-110 focus:outline-none focus:scale-110"
                         aria-label="Besuchen Sie uns auf LinkedIn"
                     >
                         <img
@@ -129,7 +142,8 @@ export default function Footer() {
                         {sections.map((section, index) => (
                             <div key={section.title}
                                  className={`transition-all duration-500 delay-${index * 100}
-                           ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                           ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+                                 style={{ transitionDelay: `${index * 100}ms` }}>
                                 <h3 className="font-outfit text-white font-semibold mb-4 text-base sm:text-lg
                            transform transition-all duration-300 hover:text-[#C25B3F]">
                                     {section.title}

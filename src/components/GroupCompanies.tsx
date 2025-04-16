@@ -38,7 +38,7 @@ const companies = [
   },
   {
     name: 'DEMOS COMPUTER',
-    logo: '/images/2gdigital.png', // Placeholder, should be replaced with the actual image
+    logo: '/images/demoscomputer.png', // Korrigiert zu einem passenderen Namen
     link: 'https://www.demoscomputer.de'
   }
 ];
@@ -94,12 +94,13 @@ export default function GroupCompanies() {
                 aspect-[4/3] group
                 border border-gray-100
                 ${hoveredIndex === index ? 'shadow-lg scale-[1.02]' : 'shadow-sm'}
-                ${isVisible ? 'animate-fade-in' : 'opacity-0'}
-                animate-delay-${(index + 1) * 100}
+                ${isVisible ? 'opacity-100' : 'opacity-0'}
+                transition-opacity duration-500
               `}
                     onMouseEnter={() => setHoveredIndex(index)}
                     onMouseLeave={() => setHoveredIndex(null)}
                     aria-label={`Besuchen Sie ${company.name}`}
+                    style={{ transitionDelay: `${(index % 8) * 100}ms` }}
                 >
                   {/* Logo */}
                   <img

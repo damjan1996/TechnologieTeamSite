@@ -7,6 +7,12 @@ export default function Hero() {
         setIsLoaded(true);
     }, []);
 
+    // Funktion zum Öffnen von mailto-Links
+    const handleMailtoClick = (e: React.MouseEvent<HTMLAnchorElement>, mailtoUrl: string) => {
+        e.preventDefault(); // Verhindert die Standard-Link-Aktion
+        window.location.href = mailtoUrl; // Öffnet den mailto-Link direkt
+    };
+
     return (
         <section className="relative overflow-hidden bg-gray-900">
             {/* Hero section with background */}
@@ -51,6 +57,7 @@ export default function Hero() {
                                          text-white w-full sm:w-auto shadow-lg
                                          transition-all duration-300 ease-out
                                          hover:bg-[#A34832]"
+                                onClick={(e) => handleMailtoClick(e, "mailto:kontakt@technologie.team?subject=Gruppenbeitritt%20anfragen")}
                             >
                                 <span className="flex items-center gap-2">
                                     Gruppenbeitritt anfragen
@@ -68,13 +75,6 @@ export default function Hero() {
                                         />
                                     </svg>
                                 </span>
-                            </a>
-                            <a
-                                href="mailto:kontakt@technologie.team"
-                                className="font-outfit text-white text-base sm:text-lg md:text-xl
-                                         hover:text-[#C25B3F] transition-colors duration-300"
-                            >
-                                kontakt@technologie.team
                             </a>
                         </div>
                     </div>

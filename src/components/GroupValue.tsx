@@ -68,7 +68,7 @@ export default function GroupValue() {
         { threshold: 0.1 }
     );
 
-    const section = document.getElementById('group-value');
+    const section = document.getElementById('gruppenmehrwert');
     if (section) {
       observer.observe(section);
     }
@@ -81,7 +81,7 @@ export default function GroupValue() {
   }, []);
 
   return (
-      <section id="group-value" className="bg-[#C25B3F] py-12 sm:py-16 lg:py-24 overflow-hidden">
+      <section id="gruppenmehrwert" className="bg-[#C25B3F] py-12 sm:py-16 lg:py-24 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`mb-8 sm:mb-12 lg:mb-16 mx-auto text-center 
                       ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>

@@ -94,13 +94,6 @@ export default function ExtendedGroup() {
                   Zentrale: Oberhausen
                 </p>
               </div>
-
-              {/* Link for more information */}
-              <a href="#" className="absolute bottom-4 right-4 bg-[#C25B3F] hover:bg-[#A34832] text-white
-                          px-4 py-2 rounded-full shadow-lg transform transition-all duration-300
-                          group-hover:scale-105 font-medium">
-                Mehr Informationen zur Unternehmensgruppe
-              </a>
             </div>
           </div>
         </div>
