@@ -17,9 +17,9 @@ const companies = [
     link: 'https://www.gis-net.de'
   },
   {
-    name: '2G-KONZEPT',
-    logo: '/images/2gdigital.png',
-    link: 'https://www.2g-konzept.de'
+    name: 'TIMESYS',
+    logo: '/images/timesys.png',
+    link: 'https://www.timesys.de'
   },
   {
     name: 'RITTER digital',
@@ -38,8 +38,8 @@ const companies = [
   },
   {
     name: 'DEMOS COMPUTER',
-    logo: '/images/demoscomputer.png', // Korrigiert zu einem passenderen Namen
-    link: 'https://www.demoscomputer.de'
+    logo: '/images/demoscomputer.png',
+    link: 'https://demoscomputer.de'
   }
 ];
 

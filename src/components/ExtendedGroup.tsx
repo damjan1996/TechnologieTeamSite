@@ -42,12 +42,27 @@ export default function ExtendedGroup() {
                        mb-4 sm:mb-6 section-enter section-enter-active">
               Die erweiterte Unternehmensgruppe
             </h2>
-            <p className="font-outfit text-base sm:text-lg text-gray-600 mb-8 sm:mb-12 max-w-4xl
+            <p className="font-outfit text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 max-w-4xl
                      leading-relaxed section-enter section-enter-active delay-100">
               Das Technologie Team und deren Beteiligungen werden selbstständig und unabhängig geführt.
               Gleichzeitig können die Beteiligungen aber auf die Leistungen und Netzwerke der anderen
               Gesellschafterunternehmen zurückgreifen.
             </p>
+
+            {/* Neuer Link zur erweiterten Unternehmensgruppe */}
+            <div className="mb-8 sm:mb-12 section-enter section-enter-active delay-200">
+              <a
+                  href="https://www.ipm-wagner.de"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center font-outfit text-base sm:text-lg font-medium text-[#C25B3F] hover:text-[#A04A33] transition-colors duration-300"
+              >
+                <span>Mehr Informationen zur erweiterten Unternehmensgruppe</span>
+                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+              </a>
+            </div>
 
             <div className="relative rounded-2xl overflow-hidden shadow-lg group"
                  onMouseEnter={() => setIsHovered(true)}

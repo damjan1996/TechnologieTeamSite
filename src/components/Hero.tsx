@@ -60,7 +60,7 @@ export default function Hero() {
                                 onClick={(e) => handleMailtoClick(e, "mailto:kontakt@technologie.team?subject=Gruppenbeitritt%20anfragen")}
                             >
                                 <span className="flex items-center gap-2">
-                                    Gruppenbeitritt anfragen
+                                    Kontakt
                                     <svg
                                         className="w-4 h-4"
                                         fill="none"
