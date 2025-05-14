@@ -50,17 +50,17 @@ export default function Hero() {
                         </p>
                         <div className="section-enter section-enter-active delay-300 flex flex-col sm:flex-row sm:items-center gap-4">
                             <a
-                                href="mailto:kontakt@technologie.team?subject=Gruppenbeitritt%20anfragen"
+                                href="mailto:kontakt@technologie.team?subject=Webkontaktanfrage"
                                 className="group relative font-outfit inline-flex items-center justify-center
                                          overflow-hidden rounded bg-[#C25B3F] px-6 sm:px-8 py-3 sm:py-4
                                          text-base sm:text-lg md:text-xl font-medium uppercase tracking-wide
                                          text-white w-full sm:w-auto shadow-lg
                                          transition-all duration-300 ease-out
                                          hover:bg-[#A34832]"
-                                onClick={(e) => handleMailtoClick(e, "mailto:kontakt@technologie.team?subject=Gruppenbeitritt%20anfragen")}
+                                onClick={(e) => handleMailtoClick(e, "mailto:kontakt@technologie.team?subject=Webkontaktanfrage")}
                             >
                                 <span className="flex items-center gap-2">
-                                    Kontakt
+                                    Gruppenbetritt
                                     <svg
                                         className="w-4 h-4"
                                         fill="none"

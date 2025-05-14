@@ -45,7 +45,7 @@ const valueItems = [
   },
   {
     icon: Link2,
-    title: 'Gruppenzugehörigkeit',
+    title: 'Zugehörigkeit',
     description: 'Mehr aus den einzelnen Möglichkeiten rausholen und gemeinsam bessere Lösungen und Entwicklungen schaffen.'
   },
   {
