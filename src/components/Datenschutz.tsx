@@ -26,7 +26,8 @@ export default function Datenschutz() {
     }, []);
 
     return (
-        <section id="datenschutz-section" className="py-12 sm:py-16 lg:py-24 bg-white">
+        // Hinzugefügt: mt-20 sm:mt-28 für Abstand unter der Navbar
+        <section id="datenschutz-section" className="py-12 sm:py-16 lg:py-24 bg-white mt-20 sm:mt-28">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                     <h1 className="font-outfit text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 sm:mb-12">

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useEffect, useCallback } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -10,8 +10,11 @@ import ExtendedGroup from './components/ExtendedGroup';
 import Footer from './components/Footer';
 import ScrollProgress from './components/ScrollProgress';
 import ScrollToTop from './components/ScrollToTop';
+import Impressum from './components/Impressum';
+import Datenschutz from './components/Datenschutz';
 
-function App() {
+// Homepage-Komponente für die Hauptseite
+function HomePage() {
   const initializeObserver = useCallback(() => {
     const observer = new IntersectionObserver(
         (entries) => {
@@ -45,18 +48,30 @@ function App() {
   }, [initializeObserver]);
 
   return (
+      <>
+        <main className="flex-grow">
+          <Hero />
+          <Mission />
+          <Technologies />
+          <GroupValue />
+          <GroupCompanies />
+          <ExtendedGroup />
+        </main>
+      </>
+  );
+}
+
+function App() {
+  return (
       <Router>
         <div className="min-h-screen bg-white flex flex-col">
           <ScrollProgress />
           <Navbar />
-          <main className="flex-grow">
-            <Hero />
-            <Mission />
-            <Technologies />
-            <GroupValue />
-            <GroupCompanies />
-            <ExtendedGroup />
-          </main>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/impressum" element={<Impressum />} />
+            <Route path="/datenschutz" element={<Datenschutz />} />
+          </Routes>
           <Footer />
           <ScrollToTop />
         </div>
