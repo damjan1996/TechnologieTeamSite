@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
+import { useCookieConsent } from './CookieConsentProvider';
 
 export default function Datenschutz() {
     const [isVisible, setIsVisible] = useState(false);
+    const { openCookieSettings } = useCookieConsent();
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -100,7 +102,58 @@ export default function Datenschutz() {
 
                         <h3 className="text-xl font-semibold mb-3 text-gray-900">6. Cookies</h3>
                         <p className="mb-4">
-                            Wir setzten auf unserer Webseite Cookies ein. Cookies sind kleine Dateien, die im Rahmen Ihres Besuchs unserer Internetseiten von uns an den Browser Ihres Endgeräts gesendet und dort gespeichert werden. Einige Funktionen unserer Internetseite können ohne den Einsatz technisch notwendiger Cookies nicht angeboten werden. Andere Cookies ermöglichen uns hingegen verschiedene Analysen. Cookies sind beispielsweise in der Lage, den von Ihnen verwendeten Browser bei einem erneuten Besuch unserer Webseite wiederzuerkennen und verschiedene Informationen an uns zu übermitteln.
+                            Wir setzen auf unserer Webseite Cookies ein. Cookies sind kleine Textdateien, die im Rahmen Ihres Besuchs unserer Internetseiten von uns an den Browser Ihres Endgerätes gesendet und dort gespeichert werden.
+                        </p>
+
+                        <h4 className="text-lg font-semibold mb-2 text-gray-900">Kategorien von Cookies</h4>
+                        <p className="mb-2">
+                            Wir verwenden verschiedene Arten von Cookies auf unserer Website:
+                        </p>
+                        <ul className="list-disc pl-5 mb-4">
+                            <li><strong>Essentielle Cookies:</strong> Diese Cookies sind für die Grundfunktionen der Website erforderlich und können nicht deaktiviert werden. Sie umfassen beispielsweise Cookies, die für das Funktionieren des Cookie-Banners selbst oder für die Speicherung Ihrer Cookie-Einstellungen notwendig sind.</li>
+                            <li><strong>Analyse-Cookies:</strong> Diese Cookies helfen uns zu verstehen, wie Besucher mit unserer Website interagieren, indem sie anonymisierte Informationen über Verhaltensmuster und Trends sammeln. Dies hilft uns, unsere Website und Dienstleistungen zu verbessern.</li>
+                            <li><strong>Marketing-Cookies:</strong> Diese Cookies werden verwendet, um Werbung relevanter für Sie zu gestalten und Ihre Interaktionen mit Marketing-Inhalten zu erfassen.</li>
+                        </ul>
+
+                        <h4 className="text-lg font-semibold mb-2 text-gray-900">Cookie-Technologien</h4>
+                        <p className="mb-4">
+                            Wir nutzen folgende Cookie-Technologien auf unserer Website:
+                        </p>
+                        <ul className="list-disc pl-5 mb-4">
+                            <li><strong>Session-Cookies:</strong> Diese temporären Cookies werden gelöscht, sobald Sie Ihren Browser schließen. Sie speichern eine eindeutige Kennung, die es ermöglicht, Sie beim Navigieren durch die Website als denselben Benutzer zu identifizieren.</li>
+                            <li><strong>Persistente Cookies:</strong> Diese Cookies bleiben auf Ihrem Gerät gespeichert, bis sie entweder ablaufen oder von Ihnen gelöscht werden. Sie werden verwendet, um Ihre Präferenzen oder Handlungen auf unserer Website zu speichern.</li>
+                            <li><strong>Erstanbieter-Cookies:</strong> Diese Cookies werden von uns gesetzt.</li>
+                            <li><strong>Drittanbieter-Cookies:</strong> Diese Cookies werden von Drittanbietern gesetzt, deren Dienste wir nutzen.</li>
+                        </ul>
+
+                        <h4 className="text-lg font-semibold mb-2 text-gray-900">Wie Sie Cookies verwalten können</h4>
+                        <p className="mb-4">
+                            Sie haben die Möglichkeit, Ihre Cookie-Einstellungen jederzeit anzupassen. Dazu klicken Sie bitte auf den Link "Cookie-Einstellungen" im Footer unserer Website oder den untenstehenden Button. Dort können Sie wählen, welche Cookie-Kategorien Sie akzeptieren möchten.
+                        </p>
+                        <div className="mb-6">
+                            <button
+                                onClick={openCookieSettings}
+                                className="px-4 py-2 bg-[#C25B3F] text-white rounded-md hover:bg-[#A34832] transition-colors"
+                            >
+                                Cookie-Einstellungen öffnen
+                            </button>
+                        </div>
+                        <p className="mb-4">
+                            Alternativ können Sie auch die Einstellungen Ihres Browsers verwenden, um Cookies zu verwalten. Bitte beachten Sie, dass das Blockieren aller Cookies sich auf Ihre Browsererfahrung auswirken kann. Die folgenden Links bieten Informationen zur Cookie-Verwaltung in den gängigsten Browsern:
+                        </p>
+                        <ul className="list-disc pl-5 mb-4">
+                            <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer" className="text-[#C25B3F] hover:underline">Google Chrome</a></li>
+                            <li><a href="https://support.mozilla.org/de/kb/cookies-erlauben-und-ablehnen" target="_blank" rel="noopener noreferrer" className="text-[#C25B3F] hover:underline">Mozilla Firefox</a></li>
+                            <li><a href="https://support.apple.com/de-de/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer" className="text-[#C25B3F] hover:underline">Safari</a></li>
+                            <li><a href="https://support.microsoft.com/de-de/microsoft-edge/cookies-in-microsoft-edge-löschen-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer" className="text-[#C25B3F] hover:underline">Microsoft Edge</a></li>
+                        </ul>
+
+                        <h4 className="text-lg font-semibold mb-2 text-gray-900">Rechtsgrundlage</h4>
+                        <p className="mb-6">
+                            Die Rechtsgrundlage für die Verarbeitung personenbezogener Daten durch essentielle Cookies ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse). Unser berechtigtes Interesse besteht darin, den ordnungsgemäßen Betrieb unserer Website sicherzustellen.
+                        </p>
+                        <p className="mb-6">
+                            Die Rechtsgrundlage für die Verarbeitung personenbezogener Daten mittels Analyse- und Marketing-Cookies ist Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). Diese Cookies werden nur gesetzt, wenn Sie uns Ihre ausdrückliche Einwilligung dazu erteilen.
                         </p>
 
                         <h3 className="text-xl font-semibold mb-3 text-gray-900">7. Widerruf Ihrer Einwilligung zur Datenverarbeitung</h3>

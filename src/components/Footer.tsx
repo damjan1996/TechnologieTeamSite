@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useCookieConsent } from './CookieConsentProvider';
 
 type FooterSection = {
     title: string;
@@ -18,6 +19,7 @@ const links = [
 export default function Footer() {
     const [isVisible, setIsVisible] = useState(false);
     const [hoveredLink, setHoveredLink] = useState<string | null>(null);
+    const { openCookieSettings } = useCookieConsent();
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -179,9 +181,19 @@ export default function Footer() {
 
                 <div className="border-t border-gray-800 mt-12 sm:mt-16 pt-6 sm:pt-8
                      text-center text-sm text-gray-500">
-                    <p className="transition-colors duration-300 hover:text-gray-400">
-                        Copyright © {new Date().getFullYear()} TechnologieTeam
-                    </p>
+                    <div className="flex flex-col sm:flex-row justify-center items-center gap-3">
+                        <p className="transition-colors duration-300 hover:text-gray-400">
+                            Copyright © {new Date().getFullYear()} TechnologieTeam
+                        </p>
+                        <button
+                            onClick={openCookieSettings}
+                            className="text-gray-500 hover:text-white transition-colors duration-300
+                                      text-sm underline focus:outline-none"
+                            aria-label="Cookie-Einstellungen öffnen"
+                        >
+                            Cookie-Einstellungen
+                        </button>
+                    </div>
                 </div>
             </div>
         </footer>
