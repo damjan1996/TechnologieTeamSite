@@ -6,11 +6,13 @@ type FooterSection = {
     content: React.ReactNode;
 };
 
+// Links aktualisiert mit Links zu den neuen Seiten
 const links = [
-    { href: '#technologien', text: 'Unterstützte Technologien' },
-    { href: '#gruppenmehrwert', text: 'Gruppenmehrwert' },
+    { href: '/#technologien', text: 'Unterstützte Technologien' },
+    { href: '/#gruppenmehrwert', text: 'Gruppenmehrwert' },
     { href: 'mailto:kontakt@technologie.team?subject=Gruppenbeitritt%20anfragen', text: 'Gruppenbeitritt anfragen' },
-    { href: '#impressum', text: 'Impressum' },
+    { href: '/impressum', text: 'Impressum', isRouterLink: true },
+    { href: '/datenschutz', text: 'Datenschutz', isRouterLink: true },
 ];
 
 export default function Footer() {
@@ -54,6 +56,27 @@ export default function Footer() {
                         // Prüfen, ob es ein mailto-Link ist
                         const isMailto = link.href.startsWith('mailto:');
 
+                        // Falls ein React Router Link verwendet werden soll
+                        if (link.isRouterLink) {
+                            return (
+                                <Link
+                                    key={link.href}
+                                    to={link.href}
+                                    className="block transform transition-all duration-300 hover:text-white
+                                       hover:translate-x-1 focus:outline-none focus:text-white
+                                       group relative"
+                                    onMouseEnter={() => setHoveredLink(link.href)}
+                                    onMouseLeave={() => setHoveredLink(null)}
+                                >
+                                    <span className="relative z-10 inline-block">{link.text}</span>
+                                    <span className={`absolute left-0 bottom-0 w-0 h-0.5 bg-[#C25B3F] 
+                                        transition-all duration-300 group-hover:w-full
+                                        ${hoveredLink === link.href ? 'w-full' : 'w-0'}`} />
+                                </Link>
+                            );
+                        }
+
+                        // Andernfalls ein normaler Link
                         return (
                             <a
                                 key={link.href}
