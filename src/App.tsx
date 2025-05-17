@@ -12,6 +12,9 @@ import ScrollProgress from './components/ScrollProgress';
 import ScrollToTop from './components/ScrollToTop';
 import Impressum from './components/Impressum';
 import Datenschutz from './components/Datenschutz';
+import CookieBanner from './components/CookieBanner';
+import { CookieConsentProvider } from './components/CookieConsentProvider';
+import CookieSettings from './components/CookieSettings';
 
 // Homepage-Komponente für die Hauptseite
 function HomePage() {
@@ -63,19 +66,23 @@ function HomePage() {
 
 function App() {
   return (
-      <Router>
-        <div className="min-h-screen bg-white flex flex-col">
-          <ScrollProgress />
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/impressum" element={<Impressum />} />
-            <Route path="/datenschutz" element={<Datenschutz />} />
-          </Routes>
-          <Footer />
-          <ScrollToTop />
-        </div>
-      </Router>
+      <CookieConsentProvider>
+        <Router>
+          <div className="min-h-screen bg-white flex flex-col">
+            <ScrollProgress />
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/impressum" element={<Impressum />} />
+              <Route path="/datenschutz" element={<Datenschutz />} />
+            </Routes>
+            <Footer />
+            <ScrollToTop />
+            <CookieBanner />
+            <CookieSettings />
+          </div>
+        </Router>
+      </CookieConsentProvider>
   );
 }
 
