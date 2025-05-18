@@ -4,42 +4,50 @@ const companies = [
   {
     name: 'b.o.c. IT-SECURITY',
     logo: '/images/bocitsec.png',
-    link: 'https://www.boc.de'
+    link: 'https://www.boc.de',
+    description: 'Spezialist für IT-Sicherheitsdienstleistungen und -lösungen'
   },
   {
     name: 'RITTER TECHNOLOGIE',
     logo: '/images/rittec.png',
-    link: 'https://www.rittec.de'
+    link: 'https://www.rittec.de',
+    description: 'IT-Dienstleister für Technologielösungen und Infrastruktur'
   },
   {
     name: 'GIS',
     logo: '/images/gis.png',
-    link: 'https://www.gis-net.de'
+    link: 'https://www.gis-net.de',
+    description: 'Anbieter für Netzwerk- und IT-Infrastrukturlösungen'
   },
   {
     name: 'TIMESYS',
     logo: '/images/timesys.png',
-    link: 'https://www.timesys.de'
+    link: 'https://www.timesys.de',
+    description: 'Spezialist für Zeiterfassung und Zutrittskontrollsysteme'
   },
   {
     name: 'RITTER digital',
     logo: '/images/ritterdigital.png',
-    link: 'https://www.ritterdigital.de'
+    link: 'https://www.ritterdigital.de',
+    description: 'Digitale Transformation und IT-Dienstleistungen'
   },
   {
     name: 'LINQ-IT',
     logo: '/images/linqit.png',
-    link: 'https://www.linq-it.de'
+    link: 'https://www.linq-it.de',
+    description: 'IT-Beratung und Softwarelösungen'
   },
   {
     name: 'NETRIX IT',
     logo: '/images/netrix.png',
-    link: 'https://www.netrix-it.de'
+    link: 'https://www.netrix-it.de',
+    description: 'IT-Dienstleister für Netzwerklösungen und IT-Support'
   },
   {
     name: 'DEMOS COMPUTER',
     logo: '/images/demoscomputer.png',
-    link: 'https://demoscomputer.de'
+    link: 'https://demoscomputer.de',
+    description: 'Hardware und IT-Dienstleistungen für Unternehmen'
   }
 ];
 
@@ -79,7 +87,7 @@ export default function GroupCompanies() {
           </h2>
 
           {/* Angepasstes Grid für 2 Spalten auf Mobile */}
-          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6 lg:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6 lg:gap-8" role="list">
             {companies.map((company, index) => (
                 <a
                     key={index}
@@ -99,13 +107,14 @@ export default function GroupCompanies() {
               `}
                     onMouseEnter={() => setHoveredIndex(index)}
                     onMouseLeave={() => setHoveredIndex(null)}
-                    aria-label={`Besuchen Sie ${company.name}`}
+                    aria-label={`Besuchen Sie ${company.name} - ${company.description}`}
                     style={{ transitionDelay: `${(index % 8) * 100}ms` }}
+                    role="listitem"
                 >
                   {/* Logo */}
                   <img
                       src={company.logo}
-                      alt={company.name}
+                      alt={`Logo von ${company.name} - ${company.description}`}
                       className="w-full max-w-[95%] max-h-[80%] object-contain
                          transition-transform duration-500
                          group-hover:scale-110 will-change-transform"
@@ -125,7 +134,7 @@ export default function GroupCompanies() {
                   {/* Hover Effect Border */}
                   <div className="absolute inset-0 rounded-xl border-2 border-[#C25B3F] opacity-0
                            scale-105 group-hover:opacity-100 group-hover:scale-100
-                           transition-all duration-300" />
+                           transition-all duration-300" aria-hidden="true" />
                 </a>
             ))}
           </div>

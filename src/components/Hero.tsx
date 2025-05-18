@@ -14,7 +14,7 @@ export default function Hero() {
     };
 
     return (
-        <section className="relative overflow-hidden bg-gray-900">
+        <section className="relative overflow-hidden bg-gray-900" aria-label="Hauptbanner">
             {/* Hero section with background */}
             <div className="relative min-h-screen flex items-center">
                 {/* Background image with overlay */}
@@ -26,6 +26,8 @@ export default function Hero() {
                         backgroundPosition: 'center',
                         backgroundRepeat: 'no-repeat'
                     }}
+                    role="img"
+                    aria-label="Hintergrundbild der Technologie Team Unternehmensgruppe"
                 >
                     <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/60" />
                 </div>
@@ -58,14 +60,16 @@ export default function Hero() {
                                          transition-all duration-300 ease-out
                                          hover:bg-[#A34832]"
                                 onClick={(e) => handleMailtoClick(e, "mailto:kontakt@technologie.team?subject=Webkontaktanfrage")}
+                                aria-label="E-Mail senden für Gruppenbeitritt"
                             >
                                 <span className="flex items-center gap-2">
-                                    Gruppenbetritt
+                                    Gruppenbeitritt
                                     <svg
                                         className="w-4 h-4"
                                         fill="none"
                                         stroke="currentColor"
                                         viewBox="0 0 24 24"
+                                        aria-hidden="true"
                                     >
                                         <path
                                             strokeLinecap="round"
@@ -82,7 +86,7 @@ export default function Hero() {
             </div>
 
             {/* Subtle background effects */}
-            <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
                 <div className="absolute top-1/4 left-0 w-96 h-96 bg-orange-500/10 rounded-full
                               blur-3xl mix-blend-overlay opacity-75" />
                 <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-orange-500/10 rounded-full

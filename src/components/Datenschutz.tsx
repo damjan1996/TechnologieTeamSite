@@ -47,8 +47,9 @@ export default function Datenschutz() {
                             Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
                         </p>
                         <p className="mb-4">
-                            <strong>TECHNOLOGIE TEAM GmbH</strong><br />
+                            <strong>Technologie Team JPU Beteiligungs GmbH</strong><br />
                             Sitz der Gesellschaft: Oberhausen<br />
+                            Handelsregister: Amtsgericht Duisburg – HRB 37564<br />
                             Anschrift: Essener Str. 2-24, 46047 Oberhausen<br />
                             E-Mail: kontakt@technologie.team
                         </p>

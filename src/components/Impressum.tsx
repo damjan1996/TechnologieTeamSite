@@ -37,9 +37,9 @@ export default function Impressum() {
                     <div className="prose prose-lg max-w-none">
                         <h2 className="text-2xl font-semibold mb-4 text-gray-900">A. Allgemeine Informationspflichten nach § 5 Digitale-Dienste-Gesetz (DDG)</h2>
                         <p className="mb-4">
-                            <strong>TECHNOLOGIE TEAM GmbH</strong><br />
+                            <strong>Technologie Team JPU Beteiligungs GmbH</strong><br />
                             Sitz der Gesellschaft: Oberhausen<br />
-                            Handelsregister: Amtsgericht Duisburg
+                            Handelsregister: Amtsgericht Duisburg – HRB 37564
                         </p>
 
                         <p className="mb-4">

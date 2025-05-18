@@ -6,9 +6,10 @@ import { useState, useCallback, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
 interface Technology {
-  title: string
-  image: string
-  isTall?: boolean
+  title: string;
+  image: string;
+  isTall?: boolean;
+  description: string; // Hinzugefügt für bessere alt-Texte
 }
 
 const technologies: Technology[] = [
@@ -16,26 +17,31 @@ const technologies: Technology[] = [
     title: "IT-Infrastruktur, as a Service Modelle, Cloudsysteme",
     image: "/images/cloud.png",
     isTall: true,
+    description: "Cloudbasierte IT-Infrastruktur und As-a-Service-Lösungen"
   },
   {
     title: "IT-Sicherheitstechnik, Netzwerktechnik",
     image: "/images/eye.png",
     isTall: false,
+    description: "Sicherheitslösungen und Netzwerkinfrastruktur für Unternehmen"
   },
   {
     title: "Professionelle Beratung, Prozess- und Projektunterstützung, Maschinen-/ KI-Modelle",
     image: "/images/construction.png",
     isTall: true,
+    description: "Beratung und KI-gestützte Prozessoptimierung"
   },
   {
     title: "ERP, eCommerce, Warenwirtschaft, digital unterstützte Geschäftsprozesse",
     image: "/images/brain.png",
     isTall: false,
+    description: "Digitale Geschäftsprozesse und ERP-Lösungen"
   },
   {
     title: "RFID, Lagerprozesse, Internet of Things",
     image: "/images/city.png",
     isTall: true,
+    description: "IoT- und RFID-Lösungen für Logistik und Lagermanagement"
   },
 ]
 
@@ -90,18 +96,20 @@ export default function Technologies() {
 
           {/* Desktop View */}
           {!isMobile && (
-              <div className="flex flex-wrap justify-center gap-8 items-end">
+              <div className="flex flex-wrap justify-center gap-8 items-end" role="list">
                 {technologies.map((tech, index) => (
                     <div
                         key={index}
                         className="w-[200px] flex flex-col items-center"
                         style={{ display: "flex", flexDirection: "column" }}
+                        role="listitem"
                     >
                       <div className="w-full" style={{ flexGrow: 0 }}>
                         <img
                             src={tech.image || "/placeholder.svg"}
-                            alt={tech.title}
+                            alt={`${tech.title} - ${tech.description}`}
                             className={`w-full ${tech.isTall ? "h-64" : "h-48"} object-cover`}
+                            loading="lazy"
                         />
                       </div>
                       <div
@@ -127,13 +135,13 @@ export default function Technologies() {
           {/* Mobile View */}
           {isMobile && (
               <div className="relative" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
-                <div className="absolute z-10 inset-y-0 left-0 right-0 flex items-center justify-between pointer-events-none px-2">
+                <div className="absolute z-10 inset-y-0 left-0 right-0 flex items-center justify-between pointer-events-none px-2" aria-hidden="true">
                   <button
                       onClick={handlePrevious}
                       className="pointer-events-auto p-2 rounded-full bg-white/90 shadow-lg
                    transition-all duration-300 hover:bg-white active:scale-95
                    focus:outline-none focus:ring-2 focus:ring-orange-500"
-                      aria-label="Vorherige"
+                      aria-label="Vorherige Technologie anzeigen"
                   >
                     <ChevronLeft className="w-5 h-5 text-gray-600" />
                   </button>
@@ -142,7 +150,7 @@ export default function Technologies() {
                       className="pointer-events-auto p-2 rounded-full bg-[#C25B3F] shadow-lg
                    transition-all duration-300 hover:bg-[#A34832] active:scale-95
                    focus:outline-none focus:ring-2 focus:ring-orange-500"
-                      aria-label="Nächste"
+                      aria-label="Nächste Technologie anzeigen"
                   >
                     <ChevronRight className="w-5 h-5 text-white" />
                   </button>
@@ -152,8 +160,9 @@ export default function Technologies() {
                   <div className="w-full max-w-[280px]">
                     <img
                         src={technologies[currentIndex].image || "/placeholder.svg"}
-                        alt={technologies[currentIndex].title}
+                        alt={`${technologies[currentIndex].title} - ${technologies[currentIndex].description}`}
                         className={`w-full ${technologies[currentIndex].isTall ? "h-64" : "h-48"} object-cover`}
+                        loading="lazy"
                     />
                   </div>
                   <div
@@ -173,14 +182,16 @@ export default function Technologies() {
                   <div className="h-1 bg-[#C25B3F] w-full max-w-[280px] mt-1"></div>
                 </div>
 
-                <div className="flex justify-center gap-2 mt-6">
+                <div className="flex justify-center gap-2 mt-6" role="tablist" aria-label="Technologie-Kategorien">
                   {technologies.map((_, idx) => (
                       <button
                           key={idx}
                           onClick={() => setCurrentIndex(idx)}
                           className={`h-1 rounded-full transition-all duration-300 
             ${currentIndex === idx ? "w-8 bg-[#C25B3F]" : "w-4 bg-gray-300"}`}
-                          aria-label={`Gehe zu Slide ${idx + 1}`}
+                          aria-label={`Gehe zu ${technologies[idx].title}`}
+                          aria-selected={currentIndex === idx}
+                          role="tab"
                       />
                   ))}
                 </div>
